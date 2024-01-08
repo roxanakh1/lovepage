@@ -13,6 +13,14 @@
       padding: 0;
       overflow: hidden;
     }
+	img {
+  mask:
+   radial-gradient(at 70% 31%,#000 29%,#0000 30%),
+   radial-gradient(at 30% 31%,#000 29%,#0000 30%),
+   linear-gradient(#000 0 0) bottom/100% 50% no-repeat;
+  clip-path: polygon(-41% 0,50% 91%, 141% 0);
+
+}
     #container {
       position: relative;
       width: 100%;
@@ -50,8 +58,9 @@
   </style>
 </head>
 <body>
+
   <div id="container">
-    <div id="heart">❤️</div>
+    <div id="heart"><img src="me.jpg" width="100"/></div>
     <p class="love-message">تو روزانه خوشبختی من هستی!</p>
   </div>
 
@@ -60,12 +69,33 @@
     const loveMessage = document.querySelector('.love-message');
 
     const messages = [
-      "تو زندگی من رو روشن می‌کنی!",
-      "تو بهترین چیزی هستی که برام اومده!",
-      "با تو، هر روز یک ماجراجویی شگفت‌انگیزه!",
-      "خیلی از داشتن تو در زندگیم قدردانی می‌کنم!",
-      "تو عشق جاودانی منی!"
-    ];
+  "تو زندگی من رو روشن می‌کنی!", // "Tu illumines ma vie !"
+  "تو بهترین چیزی هستی که برام اومده!", // "Tu es la meilleure chose qui me soit arrivée !"
+  "با تو، هر روز یک ماجراجویی شگفت‌انگیزه!", // "Avec toi, chaque jour est une aventure incroyable !"
+  "خیلی از داشتن تو در زندگیم قدردانی می‌کنم!", // "J'apprécie énormément d'avoir quelqu'un comme toi dans ma vie !"
+  "تو عشق جاودانی منی!", // "Tu es mon amour éternel !"
+  "تو بهترین دختری هستی که من تا حالا دیده‌ام!", // "Tu es la meilleure fille que j'ai jamais rencontrée !"
+  "زندگی با تو بهترین ماجراها رو داره!", // "La vie avec toi a les meilleures aventures !"
+  "همیشه از این لحظات با تو لذت می‌برم!", // "Je profite toujours de ces moments avec toi !"
+  "صدای خنده‌ات صدای مورچه‌هایی هست که دلم رو می‌لرزونه!", // "Le son de ton rire fait frissonner mon cœur !"
+  "تو قشنگ‌ترین دختری هستی که من دیدم!", // "Tu es la fille la plus belle que j'ai vue !"
+  "توی چشماتون دنیای مخصوص خودتون رو دارید!", // "Dans tes yeux, tu as ton propre monde !"
+  "هر دقیقه با تو، یک لحظه خاصه!", // "Chaque minute avec toi est un moment spécial !"
+  "عاشق بودن به تو کار آسونیه!", // "Tomber amoureux de toi est facile !"
+  "توی دلم جای ویژه‌ای داری که هیچ کس نمی‌تونه پر کنه!", // "Tu as une place spéciale dans mon cœur que personne d'autre ne peut combler !"
+  "صدای تو صدای آرامش منه!", // "Ta voix est ma tranquillité !"
+  "تو قشنگ‌ترین انعکاس زیبایی هستی!", // "Tu es le plus beau reflet de la beauté !"
+  "با تو هر لحظه یک هدیه‌ست!", // "Chaque instant avec toi est un cadeau !"
+  "تو بی‌نظیر‌ترین دختر هستی که من می‌شناسم!", // "Tu es la fille la plus extraordinaire que je connaisse !"
+  "دوست داشتن تو بخش مهمی از زندگیمه!", // "T'aimer fait partie importante de ma vie !"
+  "با تو هر چیزی ممکن میشه!", // "Avec toi, tout est possible !"
+  "تو شعله‌ای هستی که دلم رو روشن می‌کنه!", // "Tu es une flamme qui illumine mon cœur !"
+  "تو جای خالی دلمو پر کردی!", // "Tu as comblé le vide dans mon cœur !"
+  "تو جادوگر منی که هر چیزی رو زیبا می‌کنه!", // "Tu es ma magicienne qui rend tout beau !"
+  "عاشق لبخندتم، همیشه لبخند بزن!", // "Je suis amoureux de ton sourire, continue toujours de sourire !"
+  "تو همه چیز برام هستی!", // "Tu es tout pour moi !"
+]
+
 
     function followTouch(event) {
       const x = event.touches[0].clientX;
@@ -77,6 +107,9 @@
     function showMessage() {
       loveMessage.innerText = messages[Math.floor(Math.random() * messages.length)];
       loveMessage.style.display = 'block';
+      emojisplosion({
+      emojis: ["💖", "💕", "💗", "💓", "💝"],
+});
     }
 
     function hideMessage() {
@@ -87,5 +120,6 @@
     document.addEventListener('click', showMessage);
     document.addEventListener('touchend', hideMessage);
   </script>
+  <script src="https://unpkg.com/emojisplosion/lib/global.js"></script>
 </body>
 </html>
