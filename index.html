@@ -21,6 +21,21 @@
   clip-path: polygon(-41% 0,50% 91%, 141% 0);
 
 }
+
+button {
+  position: absolute;
+  top: 150px;
+  left: 50%; /* Place le côté gauche du bouton au centre */
+  transform: translateX(-50%); /* Recentre le bouton */
+  width: 50%;
+  border: none;
+  background: #ff3366;
+  padding: 5px;
+  color: #FAFAFA;
+  font-size: 20px;
+  border-radius:10px;
+}
+
     #container {
       position: relative;
       width: 100%;
@@ -62,6 +77,7 @@
   <div id="container">
     <div id="heart"><img src="me.jpg" width="100"/></div>
     <p class="love-message">تو روزانه خوشبختی من هستی!</p>
+    <button onclick=hiddenmessage()>Click on me</button>
   </div>
 
   <script>
@@ -115,6 +131,14 @@
     function hideMessage() {
       loveMessage.style.display = 'none';
     }
+
+    function hiddenmessage() {
+      let button = document.querySelector("button")
+      button.innerText = "i miss you asalam"
+      setTimeout(() => {
+        button.innerText = "Click on me"
+      },4000)
+}
 
     document.addEventListener('touchmove', followTouch);
     document.addEventListener('click', showMessage);
